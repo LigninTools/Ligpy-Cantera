@@ -21,7 +21,7 @@ Please read the documentation for instructions on using ligpy.
 Python version 3.6 (https://www.python.org)
 
 **Python packages needed:**  
-NumPy version 1.11.3
+NumPy version 1.11.3 </p>
 Pandas version 0.19.2
 
 The original ODE solver that we used for our research is a modified version of DDASAC that is unfortunately not open source. We chose this solver because it performed the best on the stiff set of ODEs in this model. One of the main objective of this project is to replace the close-sourced ODE solver DDASAC with [Cantera](http://www.cantera.org/docs/sphinx/html/index.html) or
