@@ -19,3 +19,14 @@ Action Item:
 - Team will individually spend time on going through Ligpy.py functions, ensure understanding of the model for cantera
   input.
 ------------------------------------
+
+
+
+Update on 041017 meeting:
+*Jiayuan Guo* composed a notebook reproducing ligpy.py functions. Team have thorough understanding of the model.
+
+
+Next Step:
+- Work on Cantera input file.
+- Understanding how Cantera solve ODEs
+- Look into scipy.integrate function.
