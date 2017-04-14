@@ -1,0 +1,36 @@
+**Attendees:**
+Jiarong Ivan Cui, Tai-Yu Pan, Jiayuan Guo
+
+**Meeting time:**
+2:00pm -  4:30pm
+
+
+Team have been exploring Cantera and getting familiar with ligpy and lignet tool developed from Blake Hough (Forked in
+this repo). Initiate assessment of the Cantera package was discussed briefly during the meeting.
+
+------------------------------------
+*Jiayuan Guo*
+- Gave initial Cantera assessment, ran through examples and introduced thoughts in using this package.
+- Cantera requires .xml and .clt files for runs.
+- All units are recorded in SI.
+
+Action Item:
+- Continue Cantera exploration and dig deep into the ligpy folder sent by Ivan.
+- Goal is to have a full assessment on next meeting (Weds, April 5th).
+------------------------------------
+*Tai-Yu Pan*
+- Configured Hyak for Cantera and Python scripting.
+
+Action Item:
+- Continue Cantera exploration and dig deep into the ligpy folder sent by Ivan.
+- Goal is to have a full assessment on next meeting (Weds, April 5th).
+------------------------------------
+*Ivan Cui*
+- Connected with Blake on repo ownerships, create and update LigTool organization.
+- Update timeline and meeting notes.
+- Gave initial Cantera assessment along with *Jiayuan Guo*
+
+Action Item:
+- Continue Cantera exploration and dig deep into the ligpy folder.
+- Complete ownership transferring and maintain LigTool org.
+------------------------------------
