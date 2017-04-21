@@ -277,7 +277,7 @@ def build_species_rxns_dict(completereactionlist):
 
 
 def build_rates_list(rateconstlist, reactionlist, speciesindices,
-                     indices_to_species, human='no'):
+                     indices_to_species, T, human='no'):
     """ This function writes the list of rate expressions for each reaction.
 
     Parameters
@@ -292,6 +292,8 @@ def build_rates_list(rateconstlist, reactionlist, speciesindices,
     indices_to_species : dict
                          the reverse of speciesindices (keys are the indices
                          and values are the species)
+    T                  : float
+                         temperature in Kelvin
     human              : str, optional
                          indicate whether the output of this function should
                          be formatted for a human to read ('yes'). Default
@@ -303,11 +305,12 @@ def build_rates_list(rateconstlist, reactionlist, speciesindices,
                  a list of the rate expressions for all the reactions in the
                  model
     """
+    specieslist = get_specieslist(reactionlist)
     kmatrix = build_k_matrix(rateconstlist)
     reactant_dict = build_reactant_dict(reactionlist, speciesindices)
     rates_list = []
     for i, line in enumerate(kmatrix):
-        rate = 'rate[%s] = kvalue(T,%s) ' % (i, i)
+        rate = 'rate[%s] = k_%s_%s ' %(i, T, i)
         concentrations = ''
         for entry in reactant_dict[i]:
             if entry == 'n':   # if there is no reaction
@@ -315,7 +318,7 @@ def build_rates_list(rateconstlist, reactionlist, speciesindices,
                 break
             else:
                 if human == 'no':
-                    concentrations += '* y[%s]**%s ' % (entry[0], entry[1])
+                    concentrations += '* %s**%s ' % (specieslist[entry[0]], entry[1])
                 elif human == 'yes':
                     concentrations += '* [%s]**%s ' % \
                         (indices_to_species[entry[0]], entry[1])
