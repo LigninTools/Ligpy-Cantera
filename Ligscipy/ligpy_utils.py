@@ -105,7 +105,7 @@ def define_initial_composition(compositionlist, species):
               The initial composition (mol/L) of PLIGO
 
     """
-    for line in open(compositionlist, 'rb').readlines():
+    for line in open(compositionlist, 'r').readlines():
         if line.split(',')[0] == species:
             # Initial compositions [mole fraction]
             pligc_mol = float(line.split(',')[1])

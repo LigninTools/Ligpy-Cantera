@@ -524,3 +524,8 @@ numpoints = 10000
 
 t = [stoptime * float(i) / (numpoints - 1) for i in range(numpoints)]
 y0 = [ADIO, ADIOM2, ALD3, C10H2, C10H2M2, C10H2M4, C2H6, C3H4O, C3H4O2, C3H6, C3H6O2, C3H8O2, CH2CO, CH3CHO, CH3OH, CH4, CHAR, CO, CO2, COUMARYL, ETOH, H2, H2O, KET, KETD, KETDM2, KETM2, LIG, LIGC, LIGH, LIGM2, LIGO, MGUAI, OH, PADIO, PADIOM2, PC2H2, PCH2OH, PCH2P, PCH3, PCHO, PCHOHP, PCHP2, PCOH, PCOHP2, PCOS, PFET3, PFET3M2, PH2, PHENOL, PKETM2, PLIG, PLIGC, PLIGH, PLIGM2, PLIGO, PRADIO, PRADIOM2, PRFET3, PRFET3M2, PRKETM2, PRLIGH, PRLIGH2, PRLIGM2A, RADIO, RADIOM2, RC3H3O, RC3H5O2, RC3H7O2, RCH3, RCH3O, RKET, RKETM2, RLIGA, RLIGB, RLIGH, RLIGM2A, RLIGM2B, RMGUAI, RPHENOL, RPHENOX, RPHENOXM2, SYNAPYL, VADIO, VADIOM2, VCOUMARYL, VKET, VKETD, VKETDM2, VKETM2, VMGUAI, VPHENOL, VSYNAPYL]
+sol = odeint(ODEs, y0, t, atol=abserr, rtol=relerr)
+
+with open('sol_T300_Pseudotsuga_menziesii.dat', 'w') as f:
+	for tt, yy in zip(t, ysol):
+		print(tt, yy[0], yy[1], yy[2], yy[3], yy[4], yy[5], yy[6], yy[7], yy[8], yy[9], yy[10], yy[11], yy[12], yy[13], yy[14], yy[15], yy[16], yy[17], yy[18], yy[19], yy[20], yy[21], yy[22], yy[23], yy[24], yy[25], yy[26], yy[27], yy[28], yy[29], yy[30], yy[31], yy[32], yy[33], yy[34], yy[35], yy[36], yy[37], yy[38], yy[39], yy[40], yy[41], yy[42], yy[43], yy[44], yy[45], yy[46], yy[47], yy[48], yy[49], yy[50], yy[51], yy[52], yy[53], yy[54], yy[55], yy[56], yy[57], yy[58], yy[59], yy[60], yy[61], yy[62], yy[63], yy[64], yy[65], yy[66], yy[67], yy[68], yy[69], yy[70], yy[71], yy[72], yy[73], yy[74], yy[75], yy[76], yy[77], yy[78], yy[79], yy[80], yy[81], yy[82], yy[83], yy[84], yy[85], yy[86], yy[87], yy[88], yy[89], yy[90], yy[91], yy[92], file=f)
