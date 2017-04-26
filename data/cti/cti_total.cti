@@ -47,109 +47,109 @@ species(name='ALD3',atoms='C:3 H:6 O:1')
 
 species(name='PLIGH',atoms='C:22 H:28 O:9')
 
-species(name='LIGH')
+species(name='LIGH',atoms='C:22 H:29 O:9')
 
 species(name='PLIGO',atoms='C:20 H:22 O:10')
 
-species(name='LIGO')
+species(name='LIGO',atoms='C:20 H:23 O:10')
 
 species(name='PLIGC',atoms='C:17 H:16 O:5')
 
-species(name='LIGC')
+species(name='LIGC',atoms='C:17 H:17 O:5')
 
-species(name='PLIGM2')
+species(name='PLIGM2',atoms='C:19 H:22 O:8')
 
-species(name='LIGM2')
+species(name='LIGM2',atoms='C:19 H:23 O:8')
 
-species(name='PLIG')
+species(name='PLIG',atoms='C:15 H:14 O:4')
 
-species(name='LIG')
+species(name='LIG',atoms='C:15 H:15 O:4')
 
-species(name='PADIOM2')
+species(name='PADIOM2',atoms='C:11 H:15 O:5')
 
-species(name='ADIOM2')
+species(name='ADIOM2',atoms='C:11 H:16 O:5')
 
-species(name='PADIO')
+species(name='PADIO',atoms='C:9 H:11 O:3')
 
-species(name='ADIO')
+species(name='ADIO',atoms='C:9 H:12 O:3')
 
-species(name='PFET3')
+species(name='PFET3',atoms='C:9 H:9 O:3')
 
-species(name='PFET3M2')
+species(name='PFET3M2',atoms='C:11 H:13 O:5')
 
-species(name='SYNAPYL')
+species(name='SYNAPYL',atoms='C:11 H:14 O:4')
 
-species(name='COUMARYL')
+species(name='COUMARYL',atoms='C:9 H:10 O:2')
 
-species(name='PKETM2')
+species(name='PKETM2',atoms='C:11 H:13 O:5')
 
-species(name='KETM2')
+species(name='KETM2',atoms='C:11 H:14 O:5')
 
-species(name='KET')
+species(name='KET',atoms='C:9 H:10 O:3')
 
-species(name='KETDM2')
+species(name='KETDM2',atoms='C:11 H:12 O:4')
 
-species(name='KETD')
+species(name='KETD',atoms='C:9 H:8 O:2')
 
-species(name='MGUAI')
+species(name='MGUAI',atoms='C:8 H:10 O:3')
 
-species(name='PHENOL')
+species(name='PHENOL',atoms='C:6 H:6 O:1')
 
-species(name='C10H2M4')
+species(name='C10H2M4',atoms='C:14 H:14 O:4')
 
-species(name='C10H2M2')
+species(name='C10H2M2',atoms='C:12 H:8 O:2')
 
-species(name='C10H2')
+species(name='C10H2',atoms='C:10 H:2 O:2')
 
-species(name='CHAR')
+species(name='CHAR',atoms='C:10 H:0 O:0')
 
-species(name='PC2H2')
+species(name='PC2H2',atoms='C:2 H:2 O:0')
 
-species(name='PCH2P')
+species(name='PCH2P',atoms='C:1 H:2 O:0')
 
-species(name='PCOS')
+species(name='PCOS',atoms='C:1 H:0 O:1')
 
-species(name='PCOH')
+species(name='PCOH',atoms='C:1 H:1 O:1')
 
-species(name='PCH2OH')
+species(name='PCH2OH',atoms='C:1 H:3 O:1')
 
-species(name='PCHO')
+species(name='PCHO',atoms='C:1 H:1 O:1')
 
-species(name='PCHOHP')
+species(name='PCHOHP',atoms='C:1 H:2 O:1')
 
-species(name='PRLIGM2A')
+species(name='PRLIGM2A',atoms='C:19 H:21 O:8')
 
-species(name='RLIGM2A')
+species(name='RLIGM2A',atoms='C:19 H:22 O:8')
 
-species(name='RLIGM2B')
+species(name='RLIGM2B',atoms='C:19 H:22 O:8')
 
-species(name='RLIGA')
+species(name='RLIGA',atoms='C:15 H:14 O:4')
 
-species(name='RLIGB')
+species(name='RLIGB',atoms='C:15 H:14 O:4')
 
-species(name='PRADIOM2')
+species(name='PRADIOM2',atoms='C:11 H:14 O:5')
 
-species(name='RADIOM2')
+species(name='RADIOM2',atoms='C:11 H:15 O:5')
 
-species(name='PRADIO')
+species(name='PRADIO',atoms='C:9 H:10 O:3')
 
-species(name='RADIO')
+species(name='RADIO',atoms='C:9 H:11 O:3')
 
-species(name='PRKETM2')
+species(name='PRKETM2',atoms='C:11 H:12 O:5')
 
-species(name='RKETM2')
+species(name='RKETM2',atoms='C:11 H:13 O:5')
 
-species(name='RKET')
+species(name='RKET',atoms='C:15 H:14 O:4')
 
-species(name='PRFET3M2')
+species(name='PRFET3M2',atoms='C:11 H:12 O:5')
 
-species(name='PRFET3')
+species(name='PRFET3',atoms='C:9 H:8 O:3')
 
-species(name='RPHENOL')
+species(name='RPHENOL',atoms='C:6 H:5 O:1')
 
-species(name='RPHENOXM2')
+species(name='RPHENOXM2',atoms='C:8 H:8 O:3')
 
-species(name='RPHENOX')
+species(name='RPHENOX',atoms='C:6 H:4 O:1')
 
 species(name='RCH3O',atoms='C:1 H:3 O:1')
 
@@ -157,17 +157,17 @@ species(name='CO',atoms='C:1 H:0 O:1')
 
 species(name='H2',atoms='C:0 H:2 O:0')
 
-species(name='PCHP2')
+species(name='PCHP2',atoms='C:1 H:1 O:0')
 
 species(name='RCH3',atoms='C:1 H:3 O:0')
 
-species(name='PH2')
+species(name='PH2',atoms='C:0 H:2 O:0')
 
 species(name='H2O',atoms='C:0 H:2 O:1')
 
 species(name='C2H6',atoms='C:2 H:6 O:0')
 
-species(name='PCH3')
+species(name='PCH3'atoms='C:1 H:3 O:0')
 
 species(name='CH3CHO',atoms='C:2 H:4 O:1')
 
@@ -189,15 +189,15 @@ species(name='RC3H5O2',atoms='C:3 H:5 O:2')
 
 species(name='RC3H3O',atoms='C:3 H:3 O:1')
 
-species(name='PRLIGH')
+species(name='PRLIGH',atoms='C:22 H:28 O:9')
 
-species(name='PRLIGH2')
+species(name='PRLIGH2',atoms='C:22 H:28 O:9')
 
-species(name='RMGUAI')
+species(name='RMGUAI',atoms='C:8 H:9 O:3')
 
-species(name='RLIGH')
+species(name='RLIGH',atoms='C:22 H:28 O:9')
 
-species(name='PCOHP2')
+species(name='PCOHP2',atoms='C:1 H:1 O:1')
 
 species(name='VADIOM2',atoms='C:11 H:16 O:5')
 
@@ -229,10 +229,6 @@ species(name='CH4',atoms='C:1 H:4 O:0')
 #-------------------------------------------------------------------------------
 # Reaction data
 #------------------------------------------------------------------------------
-
-
-# Reaction 45
-reaction('CO2 + H => CO + OH', [5.896000e+11, 0.699, 24260.0])
 
 # Reaction 1
 reaction('PLIGH => PRLIGH', [1.00E+13, 0, 163254])
