@@ -1,6 +1,6 @@
 ideal_gas(name='ligpy',			
 	  elements="C H O",		
-	  species="""H  CH3OH	ETOH	ALD3
+	  species="""CH3OH	ETOH	ALD3
 		PLIGH	LIGH	PLIGO
 		LIGO	PLIGC	LIGC
 		PLIGM2	LIGM2	PLIG
@@ -167,7 +167,7 @@ species(name='H2O',atoms='C:0 H:2 O:1')
 
 species(name='C2H6',atoms='C:2 H:6 O:0')
 
-species(name='PCH3'atoms='C:1 H:3 O:0')
+species(name='PCH3',atoms='C:1 H:3 O:0')
 
 species(name='CH3CHO',atoms='C:2 H:4 O:1')
 
@@ -242,7 +242,7 @@ reaction('PLIGM2 => RPHENOXM2 + PRADIOM2', [1.00E+13, 0, 163254])
 reaction('LIG => RPHENOX + RADIO', [1.00E+13, 0, 184184])
 # Reaction 6
 reaction('PLIG => RPHENOX + PRADIO', [1.00E+13, 0, 188370])
-# Reaction 7
+# Reaction 7 REACTION UNBALANCE
 reaction('PADIOM2 => PRADIOM2', [1.00E+13, 0, 171626])
 # Reaction 8
 reaction('PADIO => PRADIO', [1.00E+13, 0, 179998])
