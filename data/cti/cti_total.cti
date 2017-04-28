@@ -161,7 +161,7 @@ species(name='PCHP2',atoms='C:1 H:1 O:0')
 
 species(name='RCH3',atoms='C:1 H:3 O:0')
 
-species(name='PH2',atoms='C:0 H:2 O:0')
+species(name='PH2',atoms='C:0 H:1 O:0')
 
 species(name='H2O',atoms='C:0 H:2 O:1')
 
@@ -189,9 +189,9 @@ species(name='RC3H5O2',atoms='C:3 H:5 O:2')
 
 species(name='RC3H3O',atoms='C:3 H:3 O:1')
 
-species(name='PRLIGH',atoms='C:22 H:28 O:9')
+species(name='PRLIGH',atoms='C:22 H:27 O:9')
 
-species(name='PRLIGH2',atoms='C:22 H:28 O:9')
+species(name='PRLIGH2',atoms='C:22 H:27 O:9')
 
 species(name='RMGUAI',atoms='C:8 H:9 O:3')
 
