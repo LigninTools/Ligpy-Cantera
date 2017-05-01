@@ -32,7 +32,7 @@ ideal_gas(name='ligpy',
 		VKET	VKETD	VPHENOL
 		C3H4O	C3H8O2	CH4""",
           reactions='all',
-          transport='Mix',
+          transport='Multi',
           initial_state=state(temperature=300.0, pressure=OneAtm))
 
 #-------------------------------------------------------------------------------
