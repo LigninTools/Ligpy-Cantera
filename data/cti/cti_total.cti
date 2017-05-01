@@ -99,7 +99,7 @@ species(name='C10H2M4',atoms='C:14 H:14 O:4')
 
 species(name='C10H2M2',atoms='C:12 H:8 O:2')
 
-species(name='C10H2',atoms='C:10 H:2 O:2')
+species(name='C10H2',atoms='C:10 H:2 O:0')
 
 species(name='CHAR',atoms='C:10 H:0 O:0')
 
@@ -139,7 +139,7 @@ species(name='PRKETM2',atoms='C:11 H:12 O:5')
 
 species(name='RKETM2',atoms='C:11 H:13 O:5')
 
-species(name='RKET',atoms='C:15 H:14 O:4')
+species(name='RKET',atoms='C:9 H:9 O:3')
 
 species(name='PRFET3M2',atoms='C:11 H:12 O:5')
 
@@ -295,29 +295,29 @@ reaction('PLIGC => PLIG + CH2CO', [1.00E+08, 0, 121394])
 # Reaction 32
 reaction('PLIGO => PLIGM2 + CO2', [1.00E+09, 0, 108836])
 # Reaction 33
-reaction('ADIOM2 + RPHENOXM2 => C10H2M4 + 0.5 H2 + PH2 + 2 PCOH + RC3H7O2', [1.00E+09, 0, 121394])
+reaction('ADIOM2 + RPHENOXM2 + H => C10H2M4 + 0.5 H2 + PH2 + 2 PCOH + RC3H7O2', [1.00E+09, 0, 121394])
 # Reaction 34
-reaction('KETM2 + RPHENOXM2 => C10H2M4 + 0.5 H2 + PH2 + 2 PCOH + RC3H5O2', [1.00E+09, 0, 121394])
+reaction('KETM2 + RPHENOXM2 + H => C10H2M4 + 0.5 H2 + PH2 + 2 PCOH + RC3H5O2', [1.00E+09, 0, 121394])
 # Reaction 35
-reaction('KETDM2 + RPHENOXM2 => C10H2M4 + 0.5 H2 + PH2 + 2 PCOH + RC3H3O', [1.00E+09, 0, 121394])
+reaction('KETDM2 + RPHENOXM2 + H => C10H2M4 + 0.5 H2 + PH2 + 2 PCOH + RC3H3O', [1.00E+09, 0, 121394])
 # Reaction 36
-reaction('SYNAPYL + RPHENOXM2 => C10H2M4 + H2 + 1.5 PH2 + 2 PCOH + RC3H3O', [1.00E+09, 0, 121394])
+reaction('SYNAPYL + RPHENOXM2 + 0.5 H => C10H2M4 + H2 + 1.5 PH2 + 2 PCOH + RC3H3O', [1.00E+09, 0, 121394])
 # Reaction 37
 reaction('ADIOM2 + RPHENOX => 0.5 C10H2M4 + 0.5 C10H2 1.5 H2 + PH2 + PCOS + PCOH + RC3H7O2', [1.00E+09, 0, 121394])
 # Reaction 38
-reaction('KETM2 + RPHENOX => 0.5 C10H2M4 + 0.5 C10H2 + 0.5 H2 + 2 PH2 + 2 PCOS + RC3H5O2', [1.00E+09, 0, 121394])
+reaction('KETM2 + RPHENOX => 0.5 C10H2M4 + 0.5 C10H2 + 0.5 H2 + 2 PH2 + 2 PCOS + RC3H5O2 + 2 H', [1.00E+09, 0, 121394])
 # Reaction 39
-reaction('KETDM2 + RPHENOX => 0.5 C10H2M4 + 0.5 C10H2 + 0.5 H2 + 2 PH2 + PCOS + PCOH + RC3H3O', [1.00E+09, 0, 121394])
+reaction('KETDM2 + RPHENOX => 0.5 C10H2M4 + 0.5 C10H2 + 0.5 H2 + 2 PH2 + PCOS + PCOH + RC3H3O + H', [1.00E+09, 0, 121394])
 # Reaction 40
-reaction('SYNAPYL + RPHENOX => 0.5 C10H2 + 0.5 C10H2M4 + 1.5 H2 + 2 PH2 + PCOH + PCOS + RC3H3O', [1.00E+09, 0, 121394])
+reaction('SYNAPYL + RPHENOX => H + 0.5 C10H2 + 0.5 C10H2M4 + 1.5 H2 + 2 PH2 + PCOH + PCOS + RC3H3O', [1.00E+09, 0, 121394])
 # Reaction 41
-reaction('ADIO + RPHENOX => C10H2 + 1.5 H2 + 2 PH2 + 2 PCOS + RC3H7O2', [1.00E+09, 0, 121394])
+reaction('ADIO + RPHENOX => 2 H + C10H2 + 1.5 H2 + 2 PH2 + 2 PCOS + RC3H7O2', [1.00E+09, 0, 121394])
 # Reaction 42
-reaction('KET + RPHENOX => C10H2 + 1.5 H2 + 2 PCOS + RC3H5O2 + 2 PH2', [1.00E+09, 0, 121394])
+reaction('KET + RPHENOX => 2 H + C10H2 + 1.5 H2 + 2 PCOS + RC3H5O2 + 2 PH2', [1.00E+09, 0, 121394])
 # Reaction 43
-reaction('KETD + RPHENOX => C10H2 + 1.5 H2 + 2 PCOS + RC3H3O + 2 PH2', [1.00E+09, 0, 121394])
+reaction('KETD + RPHENOX => 2 H + C10H2 + 1.5 H2 + 2 PCOS + RC3H3O + 2 PH2', [1.00E+09, 0, 121394])
 # Reaction 44
-reaction('COUMARYL + RPHENOX => C10H2 + 2.5 H2 + 2 PCOS + RC3H3O + 2 PH2', [1.00E+09, 0, 121394])
+reaction('COUMARYL + RPHENOX => 2 H + C10H2 + 2.5 H2 + 2 PCOS + RC3H3O + 2 PH2', [1.00E+09, 0, 121394])
 # Reaction 45
 reaction('ADIO + RPHENOXM2 => 0.5 C10H2 + 0.5 C10H2M4 + 1.5 H2 + PH2 + PCOS + PCOH + RC3H7O2', [1.00E+09, 0, 121394])
 # Reaction 46
@@ -325,11 +325,11 @@ reaction('KET + RPHENOXM2 => 0.5 C10H2 + 0.5 C10H2M4 + 1.5 H2 + PH2 + PCOS + PCO
 # Reaction 47
 reaction('KETD + RPHENOXM2 => 0.5 C10H2 + 0.5 C10H2M4 + 1.5 H2 + PH2 + PCOS + PCOH + RC3H3O', [1.00E+09, 0, 121394])
 # Reaction 48
-reaction('COUMARYL + RPHENOXM2 => 0.5 C10H2 + 0.5 C10H2M4 + 1.5 H2 + 2 PH2 + PCOS + PCOH + RC3H3O', [1.00E+09, 0, 121394])
+reaction('COUMARYL + RPHENOXM2 => H + 0.5 C10H2 + 0.5 C10H2M4 + 1.5 H2 + 2 PH2 + PCOS + PCOH + RC3H3O', [1.00E+09, 0, 121394])
 # Reaction 49
-reaction('C10H2M4 + RPHENOXM2 => 0.5 C10H2M2 + C10H2M4 + RCH3O + 0.5 H2 + PCOH', [1.00E+09, 0, 115115])
+reaction('C10H2M4 + RPHENOXM2 + H => 0.5 C10H2M2 + C10H2M4 + RCH3O + 0.5 H2 + PCOH', [1.00E+09, 0, 115115])
 # Reaction 50
-reaction('C10H2M2 + RPHENOXM2 => 0.5 C0H2M2 + 0.5 C10H2 + RCH3O + 0.5 C10H2M4 + 0.5 H2 + PCOH', [1.00E+09, 0, 115115])
+reaction('C10H2M2 + RPHENOXM2 + H => 0.5 C10H2M2 + 0.5 C10H2 + RCH3O + 0.5 C10H2M4 + 0.5 H2 + PCOH', [1.00E+09, 0, 115115])
 # Reaction 51
 reaction('C10H2M4 + RPHENOX => 0.5 C10H2M2 + 0.5 C10H2M4 + RCH3O + 0.5 C10H2 + 1.5 H2 + PCOS', [1.00E+09, 0, 117208])
 # Reaction 52
@@ -339,59 +339,59 @@ reaction('RCH3O + RPHENOX => RCH3 + CO2 + 0.5 C10H2 + 1.5 H2', [1.00E+08, 0, 544
 # Reaction 54
 reaction('RCH3O + RPHENOXM2 => RCH3 + CO2 + 0.5 C10H2M4 + 0.5 H2', [1.00E+08, 0, 54418])
 # Reaction 55
-reaction('RPHENOXM2 + RCH3 => PCOH + 0.5 C10H2M4 + 0.5 PH2 + PCH3', [1.00E+08, 0, 48139])
+reaction('RPHENOXM2 + RCH3 + 0.5 H => PCOH + 0.5 C10H2M4 + 0.5 PH2 + PCH3', [1.00E+08, 0, 48139])
 # Reaction 56
-reaction('RPHENOX + RCH3 => PCOH + 0.5 C10H2 + 1.5 PH2 + PCH3', [1.00E+08, 0, 48139])
+reaction('RPHENOX + RCH3 => PCOH + 0.5 C10H2 + 0.5 H + 1.5 PH2 + PCH3', [1.00E+08, 0, 48139])
 # Reaction 57
 reaction('RCH3O + RCH3 => ETOH', [1.00E+08, 0, 12558])
 # Reaction 58
 reaction('2 RCH3O => CH3CHO + H2O', [1.00E+08, 0, 12558])
 # Reaction 59
-reaction('RCH3O + PRADIOM2 => PCH2OH + PADIOM2', [1.00E+08, 0, 52325])
+reaction('RCH3O + PRADIOM2 + H => PCH2OH + PADIOM2', [1.00E+08, 0, 52325])
 # Reaction 60
-reaction('RCH3O + PRKETM2 => PCH2OH + PKETM2', [1.00E+08, 0, 52325])
+reaction('RCH3O + PRKETM2 + H => PCH2OH + PKETM2', [1.00E+08, 0, 52325])
 # Reaction 61
 reaction('2 RADIOM2 => 2 PCH2OH + 2 PCHP2 + 2 PCHOHP + 2 PH2 + C10H2M4 + 2 PCOH', [3.16E+07, 0, 83720])
 # Reaction 62
-reaction('2 RLIGM2B => 0.2 CHAR + 2 PCH2OH + 2 PCHOHP + 3 PH2 + 2 C10H2M4 + 4 PCOH', [3.16E+07, 0, 83720])
+reaction('2 RLIGM2B + H => 0.2 CHAR + 2 PCH2OH + 2 PCHOHP + 3 PH2 + 2 C10H2M4 + 4 PCOH', [3.16E+07, 0, 83720])
 # Reaction 63
-reaction('2 RLIGM2A => 2 PCOHP2 + 2 H2O + 2 PC2H2 + 4 PCOH + 3 PH2 + 2 C10H2M4', [3.16E+07, 0, 83720])
+reaction('2 RLIGM2A + H => 2 PCOHP2 + 2 H2O + 2 PC2H2 + 4 PCOH + 3 PH2 + 2 C10H2M4', [3.16E+07, 0, 83720])
 # Reaction 64
 reaction('2 RMGUAI => 2 PH2 + C10H2M4 + 2 PCOH', [3.16E+07, 0, 83720])
 # Reaction 65
-reaction('2 RKETM2 => 2 PCHP2 + 2 PCH2OH + 2 PH2 + C10H2M4 + 4 PCOH', [3.16E+07, 0, 83720])
+reaction('2 RKETM2 + 2 H => 2 PCHP2 + 2 PCH2OH + 2 PH2 + C10H2M4 + 4 PCOH', [3.16E+07, 0, 83720])
 # Reaction 66
-reaction('PRFET3M2 + PRFET3M2 => 2 PCOH + C10H2M4 + 2 PCHP2 + 2 PCHO + 2 PCHOHP + PH2', [3.16E+07, 0, 83720])
+reaction('PRFET3M2 + PRFET3M2 + H => 2 PCOH + C10H2M4 + 2 PCHP2 + 2 PCHO + 2 PCHOHP + PH2', [3.16E+07, 0, 83720])
 # Reaction 67
-reaction('2 RC3H7O2 => 2 H2O + 2 PC2H2 + 2 PCHOHP + PH2', [1.00E+08, 0, 12558])
+reaction('2 RC3H7O2 => 2 H2O + 2 PC2H2 + 2 PCHOHP + PH2 + H', [1.00E+08, 0, 12558])
 # Reaction 68
-reaction('2 RC3H5O2 => 2 H2O + 2 PC2H2 + PH2 + 2 PCOH', [1.00E+08, 0, 12558])
+reaction('2 RC3H5O2 + H => 2 H2O + 2 PC2H2 + PH2 + 2 PCOH', [1.00E+08, 0, 12558])
 # Reaction 69
-reaction('2 RC3H3O => 2 PC2H2 + PH2 + 2 PCOH', [1.00E+08, 0, 12558])
+reaction('2 RC3H3O + H => 2 PC2H2 + PH2 + 2 PCOH', [1.00E+08, 0, 12558])
 # Reaction 70
 reaction('OH + RCH3 => CH3OH', [1.00E+08, 0, 12558])
 # Reaction 71
 reaction('2 RCH3 => C2H6', [1.00E+08, 0, 12558])
 # Reaction 72
-reaction('RCH3 + PRADIOM2 => PCH3 + PADIOM2', [1.00E+08, 0, 48139])
+reaction('RCH3 + PRADIOM2 + H => PCH3 + PADIOM2', [1.00E+08, 0, 48139])
 # Reaction 73
-reaction('RCH3 + PRKETM2 => PCH3 + PKETM2', [1.00E+08, 0, 48139])
+reaction('RCH3 + PRKETM2 + H => PCH3 + PKETM2', [1.00E+08, 0, 48139])
 # Reaction 74
-reaction('RPHENOX + RLIGB => 3 PCOS + PCOHP2 + H2O + PC2H2 + 1.5 C10H2 + 3 PH2 + 2 H2', [3.16E+07, 0, 83720])
+reaction('RPHENOX + RLIGB => 3 H + 3 PCOS + PCOHP2 + H2O + PC2H2 + 1.5 C10H2 + 3 PH2 + 2 H2', [3.16E+07, 0, 83720])
 # Reaction 75
-reaction('2 RADIO => 2 PCH2OH + 2 PCHP2 + 2 PCHOHP + PCOS + PCOH + C10H2 + H2 + 3 PH2', [3.16E+07, 0, 92092])
+reaction('2 RADIO => 2 H + 2 PCH2OH + 2 PCHP2 + 2 PCHOHP + PCOS + PCOH + C10H2 + H2 + 3 PH2', [3.16E+07, 0, 92092])
 # Reaction 76
-reaction('RLIGB + RLIGB => PCOS + 0.2 CHAR + 2 PCH2OH + 2 PCHOHP + 2 C10H2 + 3 PCOS + 5 PH2 + 2 H2', [3.16E+07, 0, 83720])
+reaction('RLIGB + RLIGB => 5 H + PCOS + 0.2 CHAR + 2 PCH2OH + 2 PCHOHP + 2 C10H2 + 3 PCOS + 5 PH2 + 2 H2', [3.16E+07, 0, 83720])
 # Reaction 77
-reaction('2 RLIGA => 2 PCOHP2 + 2 H2O + 2 PC2H2 + 2 C10H2 + 4 PCOS + 5 PH2 + 2 H2', [3.16E+07, 0, 83720])
+reaction('2 RLIGA => 5 H + 2 PCOHP2 + 2 H2O + 2 PC2H2 + 2 C10H2 + 4 PCOS + 5 PH2 + 2 H2', [3.16E+07, 0, 83720])
 # Reaction 78
-reaction('2 RKET => 3 PCOH + 2 PCHP2 + 2 PCH2OH + PCOS + C#0H2 + 2 H2 + 2 PH2', [3.16E+07, 0, 83720])
+reaction('2 RKET + H => 3 PCOH + 2 PCHP2 + 2 PCH2OH + PCOS + C10H2 + 2 H2 + 2 PH2', [3.16E+07, 0, 83720])
 # Reaction 79
-reaction('PRFET3 + PRFET3 => 2 PCHP2 + 2 PCHO + 2 PCHOHP + 2 PCOS + C10H2 + H2 + 2 PH2', [3.16E+07, 0, 83720])
+reaction('PRFET3 + PRFET3 => 2 H + 2 PCHP2 + 2 PCHO + 2 PCHOHP + 2 PCOS + C10H2 + H2 + 2 PH2', [3.16E+07, 0, 83720])
 # Reaction 80
-reaction('RLIGH + RLIGH => 2 PCOHP2 + 4 H2O + 2 PC2H2 + 4 PCOH + 2 C10H2M4 + H2 + 2 PCH3 + 2 PCHP2 + 2 PCH2P', [3.16E+07, 0, 83720])
+reaction('RLIGH + RLIGH + 4 H => 2 PCOHP2 + 4 H2O + 2 PC2H2 + 4 PCOH + 2 C10H2M4 + H2 + 2 PCH3 + 2 PCHP2 + 2 PCH2P', [3.16E+07, 0, 83720])
 # Reaction 81
-reaction('RPHENOX + RPHENOL => 2 PCOS + C10H2 + 1.5 H2 + 2 PH2', [5.00E+07, 0, 83720])
+reaction('RPHENOX + RPHENOL => 2 H + 2 PCOS + C10H2 + 1.5 H2 + 2 PH2', [5.00E+07, 0, 83720])
 # Reaction 82
 reaction('RPHENOX + RC3H3O => PCOS + 0.5 C10H2 + H2 + PH2 + PC2H2 + PCOH', [1.00E+08, 0, 48139])
 # Reaction 83
@@ -421,9 +421,9 @@ reaction('PHENOL => VPHENOL', [1, 1, 58604])
 # Reaction 95
 reaction('PCOS => CO', [2.00E+08, 0, 209300])
 # Reaction 96
-reaction('PCOH => CO', [1.00E+07, 0, 138138])
+reaction('PCOH => CO + H', [1.00E+07, 0, 138138])
 # Reaction 97
-reaction('PH2 => H2', [1.00E+10, 0, 209300])
+reaction('PH2 + H => H2', [1.00E+10, 0, 209300])
 # Reaction 98
 reaction('PC2H2 => H2 + 0.2 CHAR', [5.00E+08, 0, 205114])
 # Reaction 99
@@ -439,21 +439,21 @@ reaction('PCH2P => PCHP2 + 0.5 H2', [5.00E+08, 0, 209300])
 # Reaction 104
 reaction('PCHP2 => 0.1 CHAR + 0.5 H2', [5.00E+08, 0, 209300])
 # Reaction 105
-reaction('PLIGH => LIGH', [1E13, 0, 154812])
+reaction('PLIGH + H => LIGH', [1E13, 0, 154812])
 # Reaction 106
-reaction('PLIGC => LIGC', [1E13, 0, 168458])
+reaction('PLIGC + H => LIGC', [1E13, 0, 168458])
 # Reaction 107
-reaction('PLIGO => LIGO', [1E13, 0, 154812])
+reaction('PLIGO + H => LIGO', [1E13, 0, 154812])
 # Reaction 108
 reaction('LIGO => LIGM2 + CO2', [1E9, 0, 108836])
 # Reaction 109
 reaction('LIGC => LIG + CH2CO', [1E8, 0, 121394])
 # Reaction 110
-reaction('2 PRADIO => PCOH + PCOS + 2 PCH2OH + 2 PCHP2 + 2 PCHOHP + C10H2 + 2 PH2 + H2', [3.16E7, 0, 92092])
+reaction('2 PRADIO => H + PCOH + PCOS + 2 PCH2OH + 2 PCHP2 + 2 PCHOHP + C10H2 + 2 PH2 + H2', [3.16E7, 0, 92092])
 # Reaction 111
-reaction('2 PRADIOM2 => 2 PCOH + 2 PCH2OH + 2 PCHP2 + 2 PCHOHP + PH2 + C10H2M4', [3.16E7, 0, 83720])
+reaction('2 PRADIOM2 + H => 2 PCOH + 2 PCH2OH + 2 PCHP2 + 2 PCHOHP + PH2 + C10H2M4', [3.16E7, 0, 83720])
 # Reaction 112
-reaction('PCHO => CO', [1E7, 0, 138138])
+reaction('PCHO => CO + H', [1E7, 0, 138138])
 # Reaction 113
 reaction('RC3H5O2 + LIGH => C3H6O2 + RLIGH', [2*10**8, 0, 71162-4186])
 # Reaction 114
@@ -831,7 +831,7 @@ reaction('RCH3O + C10H2 => CH3OH + 0.5 C10H2 + 0.5 CHAR', [1*10**8.5, 0, 33069--
 # Reaction 300
 reaction('RPHENOL + C10H2 => PHENOL + 0.5 C10H2 + 0.5 CHAR', [1*10**8.5, 0, 54418--20930])
 # Reaction 301
-reaction('RADIO + C10H2 + ADIO + 0.5 C10H2 + 0.5 CHAR', [1*10**8, 0, 54418--20930])
+reaction('RADIO + C10H2 => ADIO + 0.5 C10H2 + 0.5 CHAR', [1*10**8, 0, 54418--20930])
 # Reaction 302
 reaction('RC3H5O2 + LIG => C3H6O2 + RLIGA', [1*10**8, 0, 71162-4186])
 # Reaction 303
@@ -1042,4 +1042,3 @@ reaction('RCH3O + KET => CH3OH + RKET', [1*10**8.5, 0, 33069-4186])
 reaction('RPHENOL + KET => PHENOL + RKET', [1*10**8.5, 0, 54418-4186])
 # Reaction 406
 reaction('RADIO + KET => ADIO + RKET', [1*10**8, 0, 54418-4186])
-
