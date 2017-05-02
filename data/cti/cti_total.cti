@@ -30,15 +30,13 @@ ideal_gas(name='ligpy',
 		VKETM2	VKETDM2	VSYNAPYL
 		VMGUAI	VCOUMARYL	VADIO
 		VKET	VKETD	VPHENOL
-		C3H4O	C3H8O2	CH4""",
+		C3H4O	C3H8O2	CH4  H""",
           reactions='all',
-          transport='Multi',
           initial_state=state(temperature=300.0, pressure=OneAtm))
 
-#-------------------------------------------------------------------------------
+#--------------------------------RPHENOX-----------------------------------------------
 # Species_data
 #-------------------------------------------------------------------------------
-
 species(name='CH3OH',atoms='C:1 H:4 O:1')
 
 species(name='ETOH',atoms='C:2 H:6 O:1')
@@ -225,13 +223,14 @@ species(name='C3H8O2',atoms='C:3 H:8 O:2')
 
 species(name='CH4',atoms='C:1 H:4 O:0')
 
+species(name='H',atoms='C:0 H:1 O:0')
 
 #-------------------------------------------------------------------------------
 # Reaction data
 #------------------------------------------------------------------------------
 
 # Reaction 1
-reaction('PLIGH => PRLIGH', [1.00E+13, 0, 163254])
+reaction('PLIGH => PRLIGH + H', [1.00E+13, 0, 163254])
 # Reaction 2
 reaction('LIGH => C3H6 + OH + RLIGM2A', [1.00E+13, 0, 163254])
 # Reaction 3
@@ -242,14 +241,14 @@ reaction('PLIGM2 => RPHENOXM2 + PRADIOM2', [1.00E+13, 0, 163254])
 reaction('LIG => RPHENOX + RADIO', [1.00E+13, 0, 184184])
 # Reaction 6
 reaction('PLIG => RPHENOX + PRADIO', [1.00E+13, 0, 188370])
-# Reaction 7 REACTION UNBALANCE
-reaction('PADIOM2 => PRADIOM2', [1.00E+13, 0, 171626])
+# Reaction 7 
+reaction('PADIOM2 => PRADIOM2 + H', [1.00E+13, 0, 171626])
 # Reaction 8
-reaction('PADIO => PRADIO', [1.00E+13, 0, 179998])
+reaction('PADIO => PRADIO + H', [1.00E+13, 0, 179998])
 # Reaction 9
-reaction('PKETM2 => PRKETM2', [1.00E+13, 0, 167440])
+reaction('PKETM2 => PRKETM2 + H', [1.00E+13, 0, 167440])
 # Reaction 10
-reaction('PRKETM2 => KETDM2 + OH', [1.00E+13, 0, 121394])
+reaction('PRKETM2 + H => KETDM2 + OH', [1.00E+13, 0, 121394])
 # Reaction 11
 reaction('RPHENOXM2 => CO + 0.5 C10H2M4 + 0.5 H2', [4.00E+10, 0, 209300])
 # Reaction 12
@@ -287,7 +286,7 @@ reaction('RKET => OH + KETD', [3.00E+11, 0, 113022])
 # Reaction 28
 reaction('RC3H7O2 => RCH3O + CH3CHO', [1.00E+13, 0, 129766])
 # Reaction 29
-reaction('C10H2M4 => RCH3O + 0.5 C10H2M4 + RPHENOX', [1.00E+13, 0, 196742])
+three_body_reaction('C10H2M4 => RCH3O + 0.5 C10H2M4 + RPHENOX', [1.00E+13, 0, 196742])
 # Reaction 30
 reaction('C10H2M2 => RCH3O + 0.5 C10H2 + RPHENOX', [1.00E+13, 0, 196742])
 # Reaction 31
@@ -327,13 +326,13 @@ reaction('KETD + RPHENOXM2 => 0.5 C10H2 + 0.5 C10H2M4 + 1.5 H2 + PH2 + PCOS + PC
 # Reaction 48
 reaction('COUMARYL + RPHENOXM2 => H + 0.5 C10H2 + 0.5 C10H2M4 + 1.5 H2 + 2 PH2 + PCOS + PCOH + RC3H3O', [1.00E+09, 0, 121394])
 # Reaction 49
-reaction('C10H2M4 + RPHENOXM2 + H => 0.5 C10H2M2 + C10H2M4 + RCH3O + 0.5 H2 + PCOH', [1.00E+09, 0, 115115])
+three_body_reaction('C10H2M4 + RPHENOXM2 + H => 0.5 C10H2M2 + C10H2M4 + RCH3O + 0.5 H2 + PCOH', [1.00E+09, 0, 115115])
 # Reaction 50
-reaction('C10H2M2 + RPHENOXM2 + H => 0.5 C10H2M2 + 0.5 C10H2 + RCH3O + 0.5 C10H2M4 + 0.5 H2 + PCOH', [1.00E+09, 0, 115115])
+three_body_reaction('C10H2M2 + RPHENOXM2 + H => 0.5 C10H2M2 + 0.5 C10H2 + RCH3O + 0.5 C10H2M4 + 0.5 H2 + PCOH', [1.00E+09, 0, 115115])
 # Reaction 51
-reaction('C10H2M4 + RPHENOX => 0.5 C10H2M2 + 0.5 C10H2M4 + RCH3O + 0.5 C10H2 + 1.5 H2 + PCOS', [1.00E+09, 0, 117208])
+three_body_reaction('C10H2M4 + RPHENOX => 0.5 C10H2M2 + 0.5 C10H2M4 + RCH3O + 0.5 C10H2 + 1.5 H2 + PCOS', [1.00E+09, 0, 117208])
 # Reaction 52
-reaction('C10H2M2 + RPHENOX => 0.5 C10H2M2 + RCH3O + C10H2 + 1.5 H2 + PCOS', [1.00E+09, 0, 117208])
+three_body_reaction('C10H2M2 + RPHENOX => 0.5 C10H2M2 + RCH3O + C10H2 + 1.5 H2 + PCOS', [1.00E+09, 0, 117208])
 # Reaction 53
 reaction('RCH3O + RPHENOX => RCH3 + CO2 + 0.5 C10H2 + 1.5 H2', [1.00E+08, 0, 54418])
 # Reaction 54
@@ -341,7 +340,7 @@ reaction('RCH3O + RPHENOXM2 => RCH3 + CO2 + 0.5 C10H2M4 + 0.5 H2', [1.00E+08, 0,
 # Reaction 55
 reaction('RPHENOXM2 + RCH3 + 0.5 H => PCOH + 0.5 C10H2M4 + 0.5 PH2 + PCH3', [1.00E+08, 0, 48139])
 # Reaction 56
-reaction('RPHENOX + RCH3 => PCOH + 0.5 C10H2 + 0.5 H + 1.5 PH2 + PCH3', [1.00E+08, 0, 48139])
+reaction('RPHENOX + RCH3 => PCOH + 0.5 C10H2 + 1.5 PH2 + PCH3 + 0.5 H', [1.00E+08, 0, 48139])
 # Reaction 57
 reaction('RCH3O + RCH3 => ETOH', [1.00E+08, 0, 12558])
 # Reaction 58
@@ -361,7 +360,7 @@ reaction('2 RMGUAI => 2 PH2 + C10H2M4 + 2 PCOH', [3.16E+07, 0, 83720])
 # Reaction 65
 reaction('2 RKETM2 + 2 H => 2 PCHP2 + 2 PCH2OH + 2 PH2 + C10H2M4 + 4 PCOH', [3.16E+07, 0, 83720])
 # Reaction 66
-reaction('PRFET3M2 + PRFET3M2 + H => 2 PCOH + C10H2M4 + 2 PCHP2 + 2 PCHO + 2 PCHOHP + PH2', [3.16E+07, 0, 83720])
+three_body_reaction('PRFET3M2 + PRFET3M2 + H => 2 PCOH + C10H2M4 + 2 PCHP2 + 2 PCHO + 2 PCHOHP + PH2', [3.16E+07, 0, 83720])
 # Reaction 67
 reaction('2 RC3H7O2 => 2 H2O + 2 PC2H2 + 2 PCHOHP + PH2 + H', [1.00E+08, 0, 12558])
 # Reaction 68
@@ -381,23 +380,23 @@ reaction('RPHENOX + RLIGB => 3 H + 3 PCOS + PCOHP2 + H2O + PC2H2 + 1.5 C10H2 + 3
 # Reaction 75
 reaction('2 RADIO => 2 H + 2 PCH2OH + 2 PCHP2 + 2 PCHOHP + PCOS + PCOH + C10H2 + H2 + 3 PH2', [3.16E+07, 0, 92092])
 # Reaction 76
-reaction('RLIGB + RLIGB => 5 H + PCOS + 0.2 CHAR + 2 PCH2OH + 2 PCHOHP + 2 C10H2 + 3 PCOS + 5 PH2 + 2 H2', [3.16E+07, 0, 83720])
+three_body_reaction('RLIGB + RLIGB => 5 H + PCOS + 0.2 CHAR + 2 PCH2OH + 2 PCHOHP + 2 C10H2 + 3 PCOS + 5 PH2 + 2 H2', [3.16E+07, 0, 83720])
 # Reaction 77
 reaction('2 RLIGA => 5 H + 2 PCOHP2 + 2 H2O + 2 PC2H2 + 2 C10H2 + 4 PCOS + 5 PH2 + 2 H2', [3.16E+07, 0, 83720])
 # Reaction 78
 reaction('2 RKET + H => 3 PCOH + 2 PCHP2 + 2 PCH2OH + PCOS + C10H2 + 2 H2 + 2 PH2', [3.16E+07, 0, 83720])
 # Reaction 79
-reaction('PRFET3 + PRFET3 => 2 H + 2 PCHP2 + 2 PCHO + 2 PCHOHP + 2 PCOS + C10H2 + H2 + 2 PH2', [3.16E+07, 0, 83720])
+three_body_reaction('PRFET3 + PRFET3 => 2 H + 2 PCHP2 + 2 PCHO + 2 PCHOHP + 2 PCOS + C10H2 + H2 + 2 PH2', [3.16E+07, 0, 83720])
 # Reaction 80
-reaction('RLIGH + RLIGH + 4 H => 2 PCOHP2 + 4 H2O + 2 PC2H2 + 4 PCOH + 2 C10H2M4 + H2 + 2 PCH3 + 2 PCHP2 + 2 PCH2P', [3.16E+07, 0, 83720])
+three_body_reaction('RLIGH + RLIGH + 4 H => 2 PCOHP2 + 4 H2O + 2 PC2H2 + 4 PCOH + 2 C10H2M4 + H2 + 2 PCH3 + 2 PCHP2 + 2 PCH2P', [3.16E+07, 0, 83720])
 # Reaction 81
 reaction('RPHENOX + RPHENOL => 2 H + 2 PCOS + C10H2 + 1.5 H2 + 2 PH2', [5.00E+07, 0, 83720])
 # Reaction 82
 reaction('RPHENOX + RC3H3O => PCOS + 0.5 C10H2 + H2 + PH2 + PC2H2 + PCOH', [1.00E+08, 0, 48139])
 # Reaction 83
-reaction('RPHENOX + CHAR => PCOS + 0.5 C10H2 + 1.5 H2 + CHAR', [3.00E+07, 0, 104650])
+three_body_reaction('RPHENOX + CHAR => PCOS + 0.5 C10H2 + 1.5 H2 + CHAR', [3.00E+07, 0, 104650])
 # Reaction 84
-reaction('RPHENOXM2 + CHAR => PCOS + 0.5 C10H2M4 + 0.5 H2 + CHAR', [3.00E+07, 0, 104650])
+three_body_reaction('RPHENOXM2 + CHAR => PCOS + 0.5 C10H2M4 + 0.5 H2 + CHAR', [3.00E+07, 0, 104650])
 # Reaction 85
 reaction('ADIOM2 => VADIOM2', [1, 1, 62790])
 # Reaction 86
@@ -507,7 +506,7 @@ reaction('RADIOM2 + PLIGH => ADIOM2 + PRLIGH2', [2*10**8, 0, 54418-4186])
 # Reaction 138
 reaction('PRFET3M2 + PLIGH => PFET3M2 + PRLIGH2', [2*10**8, 0, 54418-4186])
 # Reaction 139
-reaction('PRLIGH + PLIGH => PLIGH + PRLIGH2', [2*10**8.5, 0, 41860-4186])
+three_body_reaction('PRLIGH + PLIGH => PLIGH + PRLIGH2', [2*10**8.5, 0, 41860-4186])
 # Reaction 140
 reaction('RLIGM2B + PLIGH => LIGM2 + PRLIGH2', [2*10**8, 0, 54418-4186])
 # Reaction 141
@@ -593,9 +592,9 @@ reaction('PRFET3M2 + LIGM2 => PFET3M2 + RLIGM2A', [1*10**8, 0, 54418-4186])
 # Reaction 181
 reaction('PRLIGH + LIGM2 => PLIGH + RLIGM2A', [1*10**8.5, 0, 41860-4186])
 # Reaction 182
-reaction('RLIGM2B + LIGM2 => LIGM2 + RLIGM2A', [1*10**8, 0, 54418-4186])
+three_body_reaction('RLIGM2B + LIGM2 => LIGM2 + RLIGM2A', [1*10**8, 0, 54418-4186])
 # Reaction 183
-reaction('RLIGM2A + LIGM2 => LIGM2 + RLIGM2A', [1*10**8, 0, 54418-4186])
+three_body_reaction('RLIGM2A + LIGM2 => LIGM2 + RLIGM2A', [1*10**8, 0, 54418-4186])
 # Reaction 184
 reaction('RCH3 + LIGM2 => CH4 + RLIGM2A', [1*10**8.5, 0, 48139-4186])
 # Reaction 185
@@ -635,9 +634,9 @@ reaction('PRFET3M2 + LIGM2 => PFET3M2 + RLIGM2B', [1*10**8, 0, 54418-4186])
 # Reaction 202
 reaction('PRLIGH + LIGM2 => PLIGH + RLIGM2B', [1*10**8.5, 0, 41860-4186])
 # Reaction 203
-reaction('RLIGM2B + LIGM2 => LIGM2 + RLIGM2B', [1*10**8, 0, 54418-4186])
+three_body_reaction('RLIGM2B + LIGM2 => LIGM2 + RLIGM2B', [1*10**8, 0, 54418-4186])
 # Reaction 204
-reaction('RLIGM2A + LIGM2 => LIGM2 + RLIGM2B', [1*10**8, 0, 54418-4186])
+three_body_reaction('RLIGM2A + LIGM2 => LIGM2 + RLIGM2B', [1*10**8, 0, 54418-4186])
 # Reaction 205
 reaction('RCH3 + LIGM2 => CH4 + RLIGM2B', [1*10**8.5, 0, 48139-4186])
 # Reaction 206
@@ -673,7 +672,7 @@ reaction('RC3H7O2 + PFET3M2 => C3H8O2 + PRFET3M2', [2*10**8, 0, 62790-4186])
 # Reaction 221
 reaction('RADIOM2 + PFET3M2 => ADIOM2 + PRFET3M2', [2*10**8, 0, 54418-4186])
 # Reaction 222
-reaction('PRFET3M2 + PFET3M2 => PFET3M2 + PRFET3M2', [2*10**8, 0, 54418-4186])
+three_body_reaction('PRFET3M2 + PFET3M2 => PFET3M2 + PRFET3M2', [2*10**8, 0, 54418-4186])
 # Reaction 223
 reaction('PRLIGH + PFET3M2 => PLIGH + PRFET3M2', [2*10**8.5, 0, 41860-4186])
 # Reaction 224
@@ -713,7 +712,7 @@ reaction('PRFET3 + ADIOM2 => PFET3 + RADIOM2', [1*10**8, 0, 54418-4186])
 # Reaction 241
 reaction('RC3H7O2 + ADIOM2 => C3H8O2 + RADIOM2', [1*10**8, 0, 62790-4186])
 # Reaction 242
-reaction('RADIOM2 + ADIOM2 => ADIOM2 + RADIOM2', [1*10**8, 0, 54418-4186])
+three_body_reaction('RADIOM2 + ADIOM2 => ADIOM2 + RADIOM2', [1*10**8, 0, 54418-4186])
 # Reaction 243
 reaction('PRFET3M2 + ADIOM2 => PFET3M2 + RADIOM2', [1*10**8, 0, 54418-4186])
 # Reaction 244
@@ -859,9 +858,9 @@ reaction('PRADIO + LIG => PADIO + RLIGA', [1*10**8, 0, 46046-4186])
 # Reaction 314
 reaction('RC3H3O + LIG => C3H4O + RLIGA', [1*10**8, 0, 83720-4186])
 # Reaction 315
-reaction('RLIGB + LIG => LIG + RLIGA', [1*10**8, 0, 56511-4186])
+three_body_reaction('RLIGB + LIG => LIG + RLIGA', [1*10**8, 0, 56511-4186])
 # Reaction 316
-reaction('RLIGA + LIG => LIG + RLIGA', [1*10**8, 0, 56511-4186])
+three_body_reaction('RLIGA + LIG => LIG + RLIGA', [1*10**8, 0, 56511-4186])
 # Reaction 317
 reaction('PRADIOM2 + LIG => PADIOM2 + RLIGA', [1*10**8.5, 0, 41860-4186])
 # Reaction 318
@@ -901,9 +900,9 @@ reaction('PRADIO + LIG => PADIO + RLIGB', [1*10**8, 0, 46046-4186])
 # Reaction 335
 reaction('RC3H3O + LIG => C3H4O + RLIGB', [1*10**8, 0, 83720-4186])
 # Reaction 336
-reaction('RLIGB + LIG => LIG + RLIGB', [1*10**8, 0, 56511-4186])
+three_body_reaction('RLIGB + LIG => LIG + RLIGB', [1*10**8, 0, 56511-4186])
 # Reaction 337
-reaction('RLIGA + LIG => LIG + RLIGB', [1*10**8, 0, 56511-4186])
+three_body_reaction('RLIGA + LIG => LIG + RLIGB', [1*10**8, 0, 56511-4186])
 # Reaction 338
 reaction('PRADIOM2 + LIG => PADIOM2 + RLIGB', [1*10**8.5, 0, 41860-4186])
 # Reaction 339
@@ -919,7 +918,7 @@ reaction('RADIO + LIG => ADIO + RLIGB', [1*10**8, 0, 54418-4186])
 # Reaction 344
 reaction('RC3H5O2 + PFET3 => C3H6O2 + PRFET3', [2*10**8, 0, 71162-4186])
 # Reaction 345
-reaction('PRFET3 + PFET3 => PFET3 + PRFET3', [2*10**8, 0, 54418-4186])
+three_body_reaction('PRFET3 + PFET3 => PFET3 + PRFET3', [2*10**8, 0, 54418-4186])
 # Reaction 346
 reaction('RC3H7O2 + PFET3 => C3H8O2 + PRFET3', [2*10**8, 0, 62790-4186])
 # Reaction 347
@@ -999,7 +998,7 @@ reaction('RCH3O + ADIO => CH3OH + RADIO', [1*10**8.5, 0, 33069-4186])
 # Reaction 384
 reaction('RPHENOL + ADIO => PHENOL + RADIO', [1*10**8.5, 0, 54418-4186])
 # Reaction 385
-reaction('RADIO + ADIO => ADIO + RADIO', [1*10**8, 0, 54418-4186])
+three_body_reaction('RADIO + ADIO => ADIO + RADIO', [1*10**8, 0, 54418-4186])
 # Reaction 386
 reaction('RC3H5O2 + KET => C3H6O2 + RKET', [1*10**8, 0, 71162-4186])
 # Reaction 387
@@ -1021,7 +1020,7 @@ reaction('RCH3 + KET => CH4 + RKET', [1*10**8.5, 0, 48139-4186])
 # Reaction 395
 reaction('PRKETM2 + KET => PKETM2 + RKET', [1*10**8, 0, 54418-4186])
 # Reaction 396
-reaction('RKET + KET => KET + RKET', [1*10**8.5, 0, 54418-4186])
+three_body_reaction('RKET + KET => KET + RKET', [1*10**8.5, 0, 54418-4186])
 # Reaction 397
 reaction('PRADIO + KET => PADIO + RKET', [1*10**8, 0, 46046-4186])
 # Reaction 398
