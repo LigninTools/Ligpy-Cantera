@@ -1349,7 +1349,7 @@ ysol = odeint(ODEs, y0, t, args=(p,), atol=abserr, rtol=relerr)
 
 with open('sol_heating_Pseudotsuga_menziesii.dat', 'w') as f:
 	for tt, yy in zip(t, ysol):
-		print(tt, yy[0], yy[1], yy[2], yy[3], yy[4], yy[5], yy[6], yy[7], yy[8], yy[9], yy[10], yy[11], yy[12], yy[13], yy[14], yy[15], yy[16], yy[17], yy[18], yy[19], yy[20], yy[21], yy[22], yy[23], yy[24], yy[25], yy[26], yy[27], yy[28], yy[29], yy[30], yy[31], yy[32], yy[33], yy[34], yy[35], yy[36], yy[37], yy[38], yy[39], yy[40], yy[41], yy[42], yy[43], yy[44], yy[45], yy[46], yy[47], yy[48], yy[49], yy[50], yy[51], yy[52], yy[53], yy[54], yy[55], yy[56], yy[57], yy[58], yy[59], yy[60], yy[61], yy[62], yy[63], yy[64], yy[65], yy[66], yy[67], yy[68], yy[69], yy[70], yy[71], yy[72], yy[73], yy[74], yy[75], yy[76], yy[77], yy[78], yy[79], yy[80], yy[81], yy[82], yy[83], yy[84], yy[85], yy[86], yy[87], yy[88], yy[89], yy[90], yy[91], yy[92], yy[93], file=f)
+		print(tt, "\t".join(str(y) for y in yy), sep="\t", file=f)
 	end = time.time()
 	run_time = end - start
 	print(run_time, file=f)

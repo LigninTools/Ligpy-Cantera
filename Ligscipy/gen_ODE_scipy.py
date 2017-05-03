@@ -1,8 +1,6 @@
 #!/usr/bin/pythons
 # -*- coding: utf-8 -*-
 
-import os
-
 import sciligpy_utils as lig
 import constants as const
 
@@ -12,7 +10,7 @@ def heating(species_IC='Pseudotsuga_menziesii', heating_rate=2.7, T0=25, Tmax=50
     y_list = lig.get_specieslist(reactionlist)
     speciesindices, indices_to_species = lig.get_speciesindices(y_list)
     kmatrix = lig.build_k_matrix(rateconstantlist)
-    rate_list = lig.build_rates_list_kexp(rateconstantlist, reactionlist, speciesindices, indices_to_species)
+    rate_list = lig.build_rates_list_kexp(rateconstantlist, reactionlist, speciesindices)
     species_rxns = lig.build_species_rxns_dict(reactionlist)
     dydt_expressions = lig.build_dydt_list(rate_list, y_list, species_rxns)
     PLIGC_0, PLIGH_0, PLIGO_0 = lig.define_initial_composition(compositionlist, species_IC)
@@ -91,32 +89,40 @@ def heating(species_IC='Pseudotsuga_menziesii', heating_rate=2.7, T0=25, Tmax=50
         f.write('\nysol = odeint(ODEs, y0, t, args=(p,), atol=abserr, rtol=relerr)\n\n')
 
         f.write("with open('sol_heating_%s.dat', 'w') as f:\n" % (species_IC))
-
+        """
         ysol = ''
         for i in range(len(y_list) + 1):
             ysol += 'yy[%s], ' % i
+        """
         f.write('\tfor tt, yy in zip(t, ysol):\n')
-        f.write('\t\tprint(tt, %sfile=f)\n' % ysol)
+        f.write('\t\tprint(tt, "\\t".join(str(y) for y in yy), sep="\\t", file=f)\n')
         f.write('\tend = time.time()\n\trun_time = end - start\n\tprint(run_time, file=f)')
 
 
-def isothermal(species_IC='Pseudotsuga_menziesii', continue_reaction=True, T=500):
-    if continue_reaction == True:
+def isothermal(species_IC='Pseudotsuga_menziesii', continue_simu=True, T=500):
+
+    reactionlist, rateconstantlist, compositionlist, module_dir = lig.set_paths()
+    y_list = lig.get_specieslist(reactionlist)
+    speciesindices, indices_to_species = lig.get_speciesindices(y_list)
+    kmatrix = lig.build_k_matrix(rateconstantlist)
+    rate_list = lig.build_rates_list_kexp(rateconstantlist, reactionlist, speciesindices)
+    species_rxns = lig.build_species_rxns_dict(reactionlist)
+    dydt_expressions = lig.build_dydt_list(rate_list, y_list, species_rxns)
+    PLIGC_0, PLIGH_0, PLIGO_0 = lig.define_initial_composition(compositionlist, species_IC)
+
+    stoptime = 2000
+    IC = [0] * len(y_list)
+    IC[speciesindices['PLIGC']] = PLIGC_0
+    IC[speciesindices['PLIGH']] = PLIGH_0
+    IC[speciesindices['PLIGO']] = PLIGO_0
+
+    """
+    if continue_simu is True:
         with open('sol_heating_%s.dat' %species_IC, 'r') as f:
             pre_result = f.readlines()[-2]
             pre_time = eval(pre_result[0])
             T = eval(pre_result[1]) - 273.15
             stoptime = 2000 - pre_time
-
-    reactionlist, rateconstantlist, compositionlist, module_dir = lig.set_paths()
-    y_list = lig.get_specieslist(reactionlist)
-    speciesindices, indices_to_species = lig.get_speciesindices(y_list)
-    rate_list = lig.build_rates_list(rateconstantlist, reactionlist, speciesindices, indices_to_species, T+273.15)
-    species_rxns = lig.build_species_rxns_dict(reactionlist)
-    dydt_expressions = lig.build_dydt_list(rate_list, y_list, species_rxns)
-    kmatrix = lig.build_k_matrix(rateconstantlist)
-    kvaluelist = lig.get_k_value_list(T, kmatrix)
-    PLIGC_0, PLIGH_0, PLIGO_0 = lig.define_initial_composition(compositionlist, species_IC)
 
     with open(module_dir+'ODE_scipy/solve_ODEs_T%s_%s.py' %(T, species_IC), 'w') as f:
         beginning = "#!/usr/bin/pythons\n" \
@@ -194,3 +200,4 @@ def isothermal(species_IC='Pseudotsuga_menziesii', continue_reaction=True, T=500
             ysol += 'yy[%s], ' % i
         f.write('\tfor tt, yy in zip(t, ysol):\n')
         f.write('\t\tprint(tt, %sfile=f)\n' % ysol)
+        """
