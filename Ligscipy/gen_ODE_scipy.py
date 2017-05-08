@@ -21,7 +21,6 @@ def heating(species_IC='Pseudotsuga_menziesii', heating_rate=2.7, T0=25, Tmax=50
                     "from scipy.integrate import odeint\n" \
                     "import time\n" \
                     "import numpy as np\n\n\n" \
-                    "start = time.time()\n" \
                     "def ODEs(y, t, p):\n"
         f.write(beginning)
 
@@ -47,16 +46,17 @@ def heating(species_IC='Pseudotsuga_menziesii', heating_rate=2.7, T0=25, Tmax=50
         f.write(dydt + '\n')
         f.write('\treturn dydt\n\n')
 
+        f.write('def run():\n\tstart = time.time()\n')
         # define values of parameters
-        f.write('alpha = %s\nR = %s\n' % (heating_rate, const.GAS_CONST))
-        f.write('# A, n, E values\n')
+        f.write('\talpha = %s\n\tR = %s\n' % (heating_rate, const.GAS_CONST))
+        f.write('\t# A, n, E values\n')
         for i in range(len(kmatrix)):
-            f.write('A%s = %s\nn%s = %s\nE%s = %s\n' % (i, kmatrix[i][0], i, kmatrix[i][1], i, kmatrix[i][2]))
+            f.write('\tA%s = %s\n\tn%s = %s\n\tE%s = %s\n' % (i, kmatrix[i][0], i, kmatrix[i][1], i, kmatrix[i][2]))
 
         # define initial condition
-        f.write('\n# Initial conditions\n')
-        f.write('T0 = %s\n' %(T0+273.15))
-        f.write('PLIGC = %s\nPLIGH = %s\nPLIGO = %s\n' % (PLIGC_0, PLIGH_0, PLIGO_0))
+        f.write('\n\t# Initial conditions\n')
+        f.write('\tT0 = %s\n' %(T0+273.15))
+        f.write('\tPLIGC = %s\n\tPLIGH = %s\n\tPLIGO = %s\n' % (PLIGC_0, PLIGH_0, PLIGO_0))
         IC = ''
         for i in y_list:
             if i == 'PLIGC' or i == 'PLIGH' or i == 'PLIGO':
@@ -64,39 +64,51 @@ def heating(species_IC='Pseudotsuga_menziesii', heating_rate=2.7, T0=25, Tmax=50
             else:
                 IC += ('%s = ' % i)
         IC += '0'
-        f.write(IC + '\n\n')
+        f.write('\t' + IC + '\n\n')
 
-        f.write('# ODE solver parameters\n')
-        f.write('abserr = %s\n' % const.ABSOLUTE_TOLERANCE)
-        f.write('relerr = %s\n' % const.RELATIVE_TOLERANCE)
+        # define ODE solver parameters
+        f.write('\t# ODE solver parameters\n')
+        f.write('\tabserr = %s\n' % const.ABSOLUTE_TOLERANCE)
+        f.write('\trelerr = %s\n' % const.RELATIVE_TOLERANCE)
         stoptime = (Tmax-T0) / heating_rate
-        f.write('stoptime = %s\n' %stoptime)
-        f.write('numpoints = %s\n\n' %(round(stoptime/0.02)))
+        f.write('\tstoptime = %s\n' %stoptime)
+        f.write('\tnumpoints = %s\n\n' %(round(stoptime/0.1)))
 
-        f.write('t = [stoptime * float(i) / (numpoints - 1) for i in range(numpoints)]\n')
-        y0 = 'y0 = [T0'
+        f.write('\tt = [stoptime * float(i) / (numpoints - 1) for i in range(numpoints)]\n')
+        y0 = '\ty0 = [T0'
         for spec in y_list:
             y0 += ', %s' % spec
         y0 += ']\n'
         f.write(y0)
 
-        p = 'p = [alpha, R'
+        p = '\tp = [alpha, R'
         for i in range(len(kmatrix)):
             p += ', A%s, n%s, E%s' % (i, i, i)
         p += ']\n'
         f.write(p)
 
-        f.write('\nysol = odeint(ODEs, y0, t, args=(p,), atol=abserr, rtol=relerr)\n\n')
-
-        f.write("with open('sol_heating_%s.dat', 'w') as f:\n" % (species_IC))
+        """
+        f.write('\nstep = 0\n')
+        f.write("with open('sol_heating_%s.dat', 'a') as f:\n" %species_IC)
+        f.write('\tprint(t[0], "\\t".join(str(y) for y in y0), sep="\\t", file=f)\n')
+        f.write('\twhile step < (len(t)-1):\n')
+        f.write('\t\tysol = odeint(ODEs, y0, [t[step], t[step+1]], args=(p,), atol=abserr, rtol=relerr)\n')
+        f.write('\t\tysol[1] = ysol[1].clip(min=0)\n')
+        """
+        f.write('\n\tysol = odeint(ODEs, y0, t, args=(p,), atol=abserr, rtol=relerr, mxstep=5000)\n\n')
+        f.write("\twith open('sol_heating_%s.dat', 'w') as f:\n" %species_IC)
+        f.write("\t\tdata_format = '{:15.10f}' * %s\n" %(len(y_list)+2))
         """
         ysol = ''
-        for i in range(len(y_list) + 1):
+        for i in range(len(y_list)):
             ysol += 'yy[%s], ' % i
         """
-        f.write('\tfor tt, yy in zip(t, ysol):\n')
-        f.write('\t\tprint(tt, "\\t".join(str(y) for y in yy), sep="\\t", file=f)\n')
-        f.write('\tend = time.time()\n\trun_time = end - start\n\tprint(run_time, file=f)')
+        f.write('\t\tfor tt, yy in zip(t, ysol):\n')
+        f.write('\t\t\tprint(data_format.format(tt, *yy), file=f)\n')
+        f.write('\t\tend = time.time()\n\t\trun_time = end - start\n\t\tprint(run_time, file=f)\n\n\n')
+
+        f.write("if __name__ == '__main__':\n\trun()")
+
 
 
 def isothermal(species_IC='Pseudotsuga_menziesii', continue_simu=True, T=500):
@@ -201,3 +213,6 @@ def isothermal(species_IC='Pseudotsuga_menziesii', continue_simu=True, T=500):
         f.write('\tfor tt, yy in zip(t, ysol):\n')
         f.write('\t\tprint(tt, %sfile=f)\n' % ysol)
         """
+
+if __name__ == "__main__":
+    heating()
