@@ -1353,22 +1353,28 @@ def run():
     solver.set_f_params(p)
 
     data_format = '{:15.10f}' * 95
-    with open('sol.dat', 'w') as f:
+    """
+    with open('sol-9.dat', 'w') as f:
         print(data_format.format(0, *y0), file=f)
 
     #ysol = odeint(ODEs, y0, t, args=(p,), atol=abserr, rtol=relerr, mxstep=5000)
-
+    """
     while solver.successful() and solver.t+dt < stoptime:
         ysol = solver.integrate(solver.t+dt)
-        with open('sol.dat', 'a') as f:
+        """
+        with open('sol-9.dat', 'a') as f:
             print(data_format.format(solver.t, *ysol), file=f)
+        """
     ysol = solver.integrate(stoptime)
     end = time.time()
     run_time = end - start
-    with open('sol.dat', 'a') as f:
+    """
+    with open('sol-9.dat', 'a') as f:
         print(data_format.format(stoptime, *ysol), file=f)
         print(run_time, file=f)
-
+    """
+    print(data_format.format(stoptime, *ysol))
+    print(run_time)
 
 if __name__ == '__main__':
     run()
